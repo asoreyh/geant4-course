@@ -1,4 +1,4 @@
-![Banner](materiales/banner.png)
+![Banner](materials/g4-banner.png)
 
 # Introduction to Geant4 course
 
@@ -8,7 +8,7 @@
 **Dr. Hernán Asorey**
 ***Medical Physics Department, Centro Atómico Bariloche, Av. E. Bustillo 9500, (8400) San Carlos de Bariloche, Argentina***
 
-[[_TOC_]]
+<!-- [[_TOC_]] -->
 
 <!-- 
 ## Objetivos
