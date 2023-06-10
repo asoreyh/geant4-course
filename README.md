@@ -6,8 +6,7 @@
 <!-- - [La Conga Physics program](https://laconga.redclara.net/en/home/) -->
 
 **[Dr Hernán Asorey](https://github.com/asoreyh/)**
-
-***Medical Physics Department, Centro Atómico Bariloche, Av. E. Bustillo 9500, (8400) San Carlos de Bariloche, Argentina***
+*[Medical Physics Department](http://fisica.cab.cnea.gov.ar/fisicamedica), Centro Atómico Bariloche, Av. E. Bustillo 9500, (8400) San Carlos de Bariloche, Argentina*
 
 <!-- [[_TOC_]] -->
 
