@@ -5,7 +5,7 @@
 **A very introductory course intended for developing Geant4 Applications**
 <!-- - [La Conga Physics program](https://laconga.redclara.net/en/home/) -->
 
-**[Dr Hernán Asorey](https://github.com/asoreyh/**
+**[Dr Hernán Asorey](https://github.com/asoreyh/)**
 
 ***Medical Physics Department, Centro Atómico Bariloche, Av. E. Bustillo 9500, (8400) San Carlos de Bariloche, Argentina***
 
