@@ -8,7 +8,6 @@
 
 **[Dr Hernán Asorey](https://github.com/asoreyh/)**, *[Medical Physics Department](http://fisica.cab.cnea.gov.ar/fisicamedica), Centro Atómico Bariloche, Av. E. Bustillo 9500, (8400) San Carlos de Bariloche, Argentina*
 
-<!-- [[_TOC_]] -->
 ## About this course
 
 This is a 4-hours, work-in-progress and hands-on Geant4 course for beginners. We will build two basic applications from scratch: absorbed dose calculation and shielding effects. The course is separated in four sections:
@@ -17,20 +16,17 @@ This is a 4-hours, work-in-progress and hands-on Geant4 course for beginners. We
 * The basics: simulating physical processes with Geant4
 * Apps: build your first Geant4 Applications
 
+## Contents
+
+The [apps](./apps) directory contain two directories intended for:
+
+* [base](./apps/base): base application, mainly developed during the first lecture;
+* [final](./apps/final): final application codes, mainly developed during the second lecture.
+
 ## Lectures
 
 * First lecture (2h): [Google Slides](https://docs.google.com/presentation/d/1VOZdtuHv4GT2vVAAmoiauFKEVVORfHYiUxqNb3nifQM/edit?usp=sharing)
 * Second lecture (2h): [Google Slides](https://docs.google.com/presentation/d/1UU_L1HnBrV7Qb5qRH2Q4eTX34sH_k640uGyBy6TlB4I/edit?usp=sharing)
-
-<!-- 
-## Objectives
-
-
-## Contents
-
-# Program
-
--->
 
 ## License
 
