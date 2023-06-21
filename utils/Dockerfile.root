@@ -1,0 +1,44 @@
+FROM ubuntu:22.04
+LABEL maintainer.name="Hernán Asorey"
+LABEL maintainer.email="asoreyh@gmail.com"
+ENV LANG=C.UTF-8
+ENV wdir="/opt"
+ARG pack="vim screen wget git curl rsync gnu-standards build-essential dpkg-dev g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev libssl-dev gfortran libpcre3-dev xlibmesa-glu-dev libglew-dev libftgl-dev libmysqlclient-dev libfftw3-dev libcfitsio-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev libxml2-dev libkrb5-dev libgsl0-dev qtwebengine5-dev cmake cmake-curses-gui python3 python3-dev libboost-all-dev nlohmann-json3-dev ca-certificates libz-dev libzstd-dev libxerces-c-dev nlohmann-json3-dev python3-pygccxml libxmu-dev libqt5webkit5 libqt5webkit5-dev libqt5webview5 libqt5webview5-dev libqt53dcore5 libqt53dextras5 libqt53dinput5 libqt53drender5 libqt53dquickrender5 libqt53dquickinput5 libqt5x11extras5 libqt5x11extras5-dev libqt5gui5"
+# basics
+WORKDIR ${wdir}
+RUN apt-get -y update \
+ && apt-get -y dist-upgrade \
+ && ln -sf /usr/share/zoneinfo/UTC /etc/localtime \
+ && apt-get -y install ${pack} \
+ && rm -rf /var/lib/apt/lists/*
+ENV QT_DEBUG_PLUGINS=1
+
+# root
+ARG dir="ROOT"
+ARG root_version="6.28.04"
+RUN mkdir $wdir/$dir \
+ && cd $wdir/$dir  \
+ && wget -c https://root.cern.ch/download/root_v$root_version.source.tar.gz \
+ && tar xvfz root_v$root_version.source.tar.gz \
+ && rm -v root_v$root_version.source.tar.gz \
+ && mv root-$root_version $root_version \
+ && mkdir ${root_version}-build ${root_version}-install \
+ && cd ${root_version}-build \
+ && cmake ../$root_version \
+ && cmake --build . -- -j4 \
+ && cmake --build . -- -j4 \
+ && cmake -DCMAKE_INSTALL_PREFIX=$wdir/$dir/${root_version}-install/ -P cmake_install.cmake \
+ && echo "${wdir}/${dir}/${root_version}-install/lib" >> /etc/ld.so.conf \
+ && ldconfig \
+ && now=$(date) \
+ && echo "#" >> ${HOME}/.bashrc \
+ && echo "## Added by install.sh tool on ${now}" >> ${HOME}/.bashrc \
+ && echo "### ROOT" >> ${HOME}/.bashrc \
+ && echo "export wdir=${wdir}" >> ${HOME}/.bashrc \
+ && echo "export ROOT_VERSION=${root_version}" >> ${HOME}/.bashrc \
+ && echo "export ROOT_BASE=\${wdir}/ROOT/\${ROOT_VERSION}-install" >> ${HOME}/.bashrc \
+ && echo "source \${ROOT_BASE}/bin/thisroot.sh" >> ${HOME}/.bashrc \
+ && echo "###" >> ${HOME}/.bashrc \
+ && echo "##" >> ${HOME}/.bashrc \
+ && echo "#" >> ${HOME}/.bashrc 
+CMD bash
