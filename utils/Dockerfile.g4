@@ -1,3 +1,9 @@
+# Dockerfile.g4
+# Hernan Asorey <asoreyh@gmail.com> 
+# A basic dockerfile for building a geant4 docker image from scratch. It will need to build or pull the asoreyh/root:latest docker image (it is available at docker hub)
+# It is provided as is.
+# If you find this useful, please acknowledge. 
+
 FROM asoreyh/root
 LABEL maintainer.name="Hernán Asorey"
 LABEL maintainer.email="asoreyh@gmail.com"

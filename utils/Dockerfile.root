@@ -1,3 +1,9 @@
+# Dockerfile.root
+# Hernan Asorey <asoreyh@gmail.com> 
+# A basic dockerfile for building a root docker image from scratch. 
+# It is provided as is.
+# If you find this useful, please acknowledge. 
+
 FROM ubuntu:22.04
 LABEL maintainer.name="Hernán Asorey"
 LABEL maintainer.email="asoreyh@gmail.com"
