@@ -72,8 +72,7 @@ $ docker run --privileged -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-un
 
 ## Lectures
 
-* First lecture (2h): [Google Slides](https://docs.google.com/presentation/d/1VOZdtuHv4GT2vVAAmoiauFKEVVORfHYiUxqNb3nifQM/edit?usp=sharing)
-* Second lecture (2h): [Google Slides](https://docs.google.com/presentation/d/1UU_L1HnBrV7Qb5qRH2Q4eTX34sH_k640uGyBy6TlB4I/edit?usp=sharing)
+* Lecture's slides (single document): [Google Slides](https://docs.google.com/presentation/d/1VOZdtuHv4GT2vVAAmoiauFKEVVORfHYiUxqNb3nifQM/edit?usp=sharing)
 
 ## License
 
