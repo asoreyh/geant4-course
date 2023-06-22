@@ -1,13 +1,16 @@
 # install-root-geant4.sh
-# Hernan Asorey <asoreyh@gmail.com> 
-# A simple script for installing root and geant4 in a modern release of the ubuntu OS. 
+# Hernán Asorey <asoreyh@gmail.com> 
+# A simple script for installing root and Geant4 in a modern release of the ubuntu OS. 
 # It is provided as is. Please notice it will modify your ${USER}/.bashrc file.
 # If you find this useful, please acknowledge. 
 
 # Instructions: 
-# You should change only this three environment variables: root version, geant4 version and the work directory (where the packages will be installed). 
+# You should change only the following three environment variables below
+# root version
 root_version="6.28.04"
+# Geant4 version 
 g4_src="10.07.p04"
+# and the work directory (where root and Geant4 will be installed). 
 wdir=${HOME}/work
 
 # You should not need to change anything below for standard installation
