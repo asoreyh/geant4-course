@@ -1,6 +1,6 @@
 # install-root-geant4.sh
 # Hernan Asorey <asoreyh@gmail.com> 
-# A simple script for automate the installation process of root and geant4 in a modern release of the ubuntu OS. 
+# A simple script for installing root and geant4 in a modern release of the ubuntu OS. 
 # It is provided as is. Please notice it will modify your ${USER}/.bashrc file.
 # If you find this useful, please acknowledge. 
 
@@ -17,7 +17,7 @@ sudo apt-get -y update && sudo apt-get -y dist-upgrade
 sudo apt-get -y install vim screen wget git curl rsync gnu-standards build-essential dpkg-dev g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev libssl-dev gfortran libpcre3-dev xlibmesa-glu-dev libglew-dev libftgl-dev libmysqlclient-dev libfftw3-dev libcfitsio-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev libxml2-dev libkrb5-dev libgsl0-dev qtwebengine5-dev cmake cmake-curses-gui python3 python3-dev libboost-all-dev nlohmann-json3-dev ca-certificates libz-dev libzstd-dev libxerces-c-dev nlohmann-json3-dev python3-pygccxml libxmu-dev libqt5webkit5 libqt5webkit5-dev libqt5webview5 libqt5webview5-dev libqt53dcore5 libqt53dextras5 libqt53dinput5 libqt53drender5 libqt53dquickrender5 libqt53dquickinput5 libqt5x11extras5 libqt5x11extras5-dev libqt5gui5
 start=$(date)
 
-# create the work directory at user's ${HOME} and getting the number of procs
+# create the work directory at user's ${HOME} and get the number of procs
 [ ! -d ${wdir} ] && mkdir ${wdir}
 echo "wdir=${wdir}" >> ${HOME}/.bashrc
 nproc=$(( $(nproc) / 2))
@@ -32,7 +32,7 @@ tar xvfz ${target}_v${root_version}.source.tar.gz
 rm -v ${target}_v${root_version}.source.tar.gz
 mv root-${root_version} ${root_version}
 mkdir ${root_version}-build ${root_version}-install
-cd ${{root_version}}-build
+cd ${root_version}-build
 
 cmake ../${root_version} && cmake --build . -- -j ${nproc} && cmake --build . -- -j ${nproc} 
 cmake -DCMAKE_INSTALL_PREFIX=$wdir/$dir/${root_version}-install/  -P  cmake_install.cmake 
