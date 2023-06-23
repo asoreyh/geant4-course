@@ -18,14 +18,14 @@ MyPrimaryGenerator::~MyPrimaryGenerator(){
 void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent) {
     G4ParticleTable *particleTable = G4ParticleTable::GetParticleTable();
     G4String particleName = "proton";
-    G4double mom = 100. * MeV;
+    G4double particleKEnergy = 100. * MeV;
     G4ThreeVector pos(0., 0., 0.);
     G4ThreeVector momdir(0., 0., 1.);
     G4ParticleDefinition *particle = particleTable->FindParticle(particleName);
     
     fParticleGun->SetParticlePosition(pos);
     fParticleGun->SetParticleMomentumDirection(momdir);
-    fParticleGun->SetParticleMomentum(mom);
+    fParticleGun->SetParticleEnergy(particleKEnergy);
     fParticleGun->SetParticleDefinition(particle);
     fParticleGun->GeneratePrimaryVertex(anEvent);
 }
