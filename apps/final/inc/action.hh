@@ -8,6 +8,13 @@
 #include "G4ParticleTable.hh"
 #include "G4SystemOfUnits.hh"
 
+// after create the run.hh/.cc, include it 
+#include "run.hh"
+
+// after create the event.hh/.cc and stepping.hh/.cc include them
+#include "event.hh"
+#include "stepping.hh"
+
 class MyActionInitialization : public G4VUserActionInitialization {
 public:
     MyActionInitialization();
