@@ -65,7 +65,7 @@ int main(G4int argc, char** argv) {
     // for viewing many trajectories together, comment if no needed
     UIManager->ApplyCommand("/vis/scene/endOfEventAction accumulate 300");
     // display colors by Id instead of charge
-    // UIManager->ApplyCommand("/vis/modeling/trajectories/create/drawByParticleID");
+    UIManager->ApplyCommand("/vis/modeling/trajectories/create/drawByParticleID");
 
     // 4. start the session - and compile to see what happens
     ui->SessionStart();

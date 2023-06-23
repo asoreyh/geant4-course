@@ -17,11 +17,11 @@ MyPrimaryGenerator::~MyPrimaryGenerator(){
 
 void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent) {
     G4ParticleTable *particleTable = G4ParticleTable::GetParticleTable();
-    G4String particleName = "proton";
+    G4String particleName = "e-";
     G4ParticleDefinition *particle = particleTable->FindParticle(particleName);
     G4ThreeVector pos(0., 0., 0.);
     G4ThreeVector momdir(0., 0., 1.);
-    G4double mom = 100. * MeV;
+    G4double mom = 10. * MeV;
     
     fParticleGun->SetParticlePosition(pos);
     fParticleGun->SetParticleMomentumDirection(momdir);

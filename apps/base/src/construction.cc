@@ -24,8 +24,8 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
     // instanciate the NIST manager:
     G4NistManager *nist = G4NistManager::Instance();
     // usually (but not always, world is made by Air, ie, G4_AIR)
-    G4Material *worldMat = nist->FindOrBuildMaterial("G4_AIR");
-    // G4Material *worldMat2 = nist->FindOrBuildMaterial("G4_WATER");
+    G4Material *air = nist->FindOrBuildMaterial("G4_AIR");
+    G4Material *water = nist->FindOrBuildMaterial("G4_WATER");
     
     // 2. your world should have a shape. Let's do a box.
     // It always you have three volumes: 
@@ -34,7 +34,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
     G4Box *solidWorld = new G4Box("solidWorld", 0.5*m, 0.5*m, 0.5*m);
     // 2.2 logical: assesing the material: solid, material, name
     G4LogicalVolume *logicWorld = new G4LogicalVolume(
-        solidWorld, worldMat, "logicWorld"
+        solidWorld, air, "logicWorld"
     );
 
     // 2.3 physical: where the magic occurs: rotation, position(x,y,z), 
@@ -43,5 +43,6 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
     G4VPhysicalVolume *physWorld = new G4PVPlacement(
         0, G4ThreeVector(0.,0.,0.), logicWorld, "physWorld", 0, false, 0, true
     );
+    
     return physWorld;
 }
