@@ -52,5 +52,9 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
     G4LogicalVolume *logicMuscle = new G4LogicalVolume(solidMuscle, muscle, "logicMuscle");
     G4VPhysicalVolume *physMuscle = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.10*m), logicMuscle, "physMuscle", logicWorld, false, 0, true);
 
+    // ONCE the fSensitiveVolume is defined... then
+    fSensitiveVolume = logicMuscle;
+
+
     return physWorld;
 }

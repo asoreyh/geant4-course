@@ -20,4 +20,5 @@ private:
     G4double fEDep;
 };
 
+
 #endif

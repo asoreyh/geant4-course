@@ -9,10 +9,7 @@ void MyRunAction::BeginOfRunAction(const G4Run*){
 
     root->OpenFile("dose.root");
     root->CreateNtuple("EDep", "EDep");
-    //     root->CreateNtupleIColumn("fEvent");
     root->CreateNtupleDColumn("fEDep");
-    // root->CreateNtupleDColumn("fmass");
-    // root->CreateNtupleDColumn("fAbsDose");
     root->FinishNtuple(0);
 }
 

@@ -17,8 +17,10 @@ void MyEventAction::BeginOfEventAction(const G4Event*) {
 }
 
 void MyEventAction::EndOfEventAction(const G4Event*) {
+
+    // once the discussion on fEDep is over, change it
     G4cout << "Energy deposition: " << fEDep << G4endl;
-    
+
     G4AnalysisManager *root = G4AnalysisManager::Instance();
     root->FillNtupleDColumn(0, fEDep);
     root->AddNtupleRow(0);
