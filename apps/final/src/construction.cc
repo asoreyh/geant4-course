@@ -3,8 +3,7 @@
 // as always, first the constructor and destructor
 MyDetectorConstruction::MyDetectorConstruction() {
 }
-MyDetectorConstruction::~MyDetectorConstruction() {
-}
+MyDetectorConstruction::~MyDetectorConstruction() {}
 
 // now the construction function
 G4VPhysicalVolume *MyDetectorConstruction::Construct() {
@@ -29,16 +28,17 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
 
     // 3. Let's create a new material using nist
     G4Material *muscle = nist->FindOrBuildMaterial("G4_MUSCLE_SKELETAL_ICRP");
-    
+
+    // SHIELDING, include a new material using nist, eg, lead
+    // G4Material *lead = nist->FindOrBuildMaterial("G4_Pb");  
+
     // 2. your world should have a shape. Let's do a box.
     // It always you have three volumes: 
     // solid (the shapes), logical (the materials), physicals (the magic)
     // 2.1 solid: name, x/2, y/2, z/2, use the units!!!
     G4Box *solidWorld = new G4Box("solidWorld", 0.5*m, 0.5*m, 0.5*m);
     // 2.2 logical: assesing the material: solid, material, name
-    G4LogicalVolume *logicWorld = new G4LogicalVolume(
-        solidWorld, air, "logicWorld"
-    );
+    G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld, air, "logicWorld");
 
     // 2.3 physical: where the magic occurs: rotation, position(x,y,z), 
     //     associated logical volume, name, motherVolume?, bools (negate 
@@ -55,6 +55,11 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
     // ONCE the fSensitiveVolume is defined... then
     fSensitiveVolume = logicMuscle;
 
-
+    // SHIELDING
+    /*
+    G4Box *solidShield = new G4Box ("solidShield", 0.30*m, 0.30*m, 0.015*m);
+    G4LogicalVolume *logicShield = new G4LogicalVolume(solidShield, lead, "logicShield");
+    G4VPhysicalVolume *physShield = new G4PVPlacement(0, G4ThreeVector(0.*m, 0.*m, 0.0375*m), logicShield, "physShield", logicWorld, false, 0, true);
+    */
     return physWorld;
 }

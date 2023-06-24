@@ -70,5 +70,13 @@ int main(G4int argc, char** argv) {
     // 4. start the session - and compile to see what happens
     ui->SessionStart();
 
+    G4cout << "  ====== Simulation FINISHED ====== " << G4endl;
+
+    // delete and close
+    delete ui;
+    delete visManager;
+    delete runManager;
+
+
     return 0;
 }

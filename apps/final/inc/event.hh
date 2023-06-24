@@ -5,6 +5,7 @@
 #include "G4Event.hh"
 #include "g4root.hh"
 #include "run.hh"
+#include "G4SystemOfUnits.hh"
 
 class MyEventAction : public G4UserEventAction {
 public:
@@ -15,9 +16,11 @@ public:
     virtual void EndOfEventAction(const G4Event*);
 
     void AddEDep(G4double EDep);
+    void GetMass(G4double mass);
 
 private: 
     G4double fEDep;
+    G4double fMass;
 };
 
 

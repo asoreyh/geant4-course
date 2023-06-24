@@ -20,8 +20,10 @@ void MySteppingAction::UserSteppingAction(const G4Step *step) {
     if(volume != fSensitiveVolume)
         return;
     
+    G4double fMass = fSensitiveVolume->GetMass() / kg;
     // original
     // deposited energy is stored at each step
     G4double stepEDep = step->GetTotalEnergyDeposit(); // this is for all volumes
     fEventAction->AddEDep(stepEDep);
+    fEventAction->GetMass(fMass);
 }
