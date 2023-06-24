@@ -18,10 +18,18 @@ This is a 4-hours, work-in-progress and hands-on Geant4 course for beginners. We
 
 ## Contents
 
+### Lectures
+
+* Lectures' slides (a single document): [Google Slides](https://docs.google.com/presentation/d/1VOZdtuHv4GT2vVAAmoiauFKEVVORfHYiUxqNb3nifQM/edit?usp=sharing)
+
+### Codes
+
 The [apps](./apps) directory contain two directories intended for:
 
 * [base](./apps/base): base application, mainly developed during the first lecture;
 * [final](./apps/final): final application codes, mainly developed during the second lecture.
+
+### Installation scripts
 
 You will find some root and Geant4 installation scripts and Dockerfiles in the [utils](./utils/) directory.
 
@@ -69,10 +77,6 @@ and run the Geant4 docker image (if you don’t download the docker images it wi
 $ docker run --privileged -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix asoreyh/geant4:10.07.04
 ```
 (please note you should change the image name if you build and use your own images). 
-
-## Lectures
-
-* Lecture's slides (single document): [Google Slides](https://docs.google.com/presentation/d/1VOZdtuHv4GT2vVAAmoiauFKEVVORfHYiUxqNb3nifQM/edit?usp=sharing)
 
 ## License
 
