@@ -37,8 +37,17 @@ mv root-${root_version} ${root_version}
 mkdir ${root_version}-build ${root_version}-install
 cd ${root_version}-build
 
-cmake ../${root_version} && cmake --build . -- -j ${nproc} && cmake --build . -- -j ${nproc} 
-cmake -DCMAKE_INSTALL_PREFIX=$wdir/$dir/${root_version}-install/  -P  cmake_install.cmake 
+cmake ../${root_version} && cmake --build . -- -j ${nproc} && cmake --build . -- -j ${nproc} && cmake -DCMAKE_INSTALL_PREFIX=$wdir/$dir/${root_version}-install/  -P  cmake_install.cmake 
+
+# check if root is installed
+source $wdir/$dir/${root_version}-install/bin/thisroot.sh
+if root -q > /dev/null; then 
+	echo "root is installed. We can continue"
+else 
+	echo "root installation failed. please check the log and try again"
+	exit 99;
+fi
+
 now=$(date)
 echo "
 #
@@ -76,14 +85,25 @@ cmake \
 	-DGEANT4_USE_QT=ON \
 	-DGEANT4_USE_RAYTRACER_X11=ON \
 	-DGEANT4_USE_SYSTEM_EXPAT=ON \
-	${wdir}/${g4_dir}/${g4_version} 
-make -j ${nproc} && make -j ${nproc} && make install
+	${wdir}/${g4_dir}/${g4_version} \
+	&& make -j ${nproc} \
+	&& make -j ${nproc} \
+	&& make install
 cd ${g4_data}
 wget -c ftp://gdo-nuclear.ucllnl.org/LEND_GND1.3/LEND_GND1.3_ENDF.BVII.1.tar.gz
 tar xfv LEND_GND1.3_ENDF.BVII.1.tar.gz
 rm LEND_GND1.3_ENDF.BVII.1.tar.gz
 libs=$(cat ${g4_install}/bin/geant4.sh | grep "export G4")
 libs="${libs} export G4LENDDATA=\"${wdir}/${g4_dir}/${g4_install}/share/${datadir}/data/LEND_GND1.3_ENDF.BVII.1\""
+
+source ${g4_install}/bin/geant4.sh
+if geant4-config --prefix > /dev/null; then 
+	echo "geant4 is installed. We can continue"; 
+else 
+	echo "geant4 installation failed. Please check the log and try again";
+	exit 99;
+fi
+
 now=$(date)
 echo "#" >> ${HOME}/.bashrc
 echo "## Added by install.sh tool on ${now}" >> ${HOME}/.bashrc
