@@ -96,8 +96,8 @@ rm LEND_GND1.3_ENDF.BVII.1.tar.gz
 libs=$(cat ${g4_install}/bin/geant4.sh | grep "export G4")
 libs="${libs} export G4LENDDATA=\"${wdir}/${g4_dir}/${g4_install}/share/${datadir}/data/LEND_GND1.3_ENDF.BVII.1\""
 
-source ${g4_install}/bin/geant4.sh
-if geant4-config --prefix > /dev/null; then 
+source ${g4_install}/bin/geant4.sh 2> /dev/null
+if geant4-config --prefix > /dev/null 2> /dev/null; then 
 	echo "geant4 is installed. We can continue"; 
 else 
 	echo "geant4 installation failed. Please check the log and try again";
