@@ -27,19 +27,20 @@ nproc=$(( $(nproc) / 2))
 
 
 # check for root, if it is installed, continue with geant4
-hasroot=0
+hasroot=false
+target=root
+dir=ROOT
 source $wdir/$dir/${root_version}-install/bin/thisroot.sh
 if root -q > /dev/null; then 
-	echo "root is installed. We can continue"
-	hasroot=1
+	echo; echo "##########"; echo "# root is installed. We can continue"; echo "##########"; echo 
+	hasroot=true
 else 
 	echo "root is not installed. Let's install it"
 fi
 
 # downloading and unpacking root
-if !$root; then
-target=root
-dir=ROOT
+if ! $hasroot; then
+
 mkdir $wdir/$dir
 cd $wdir/$dir
 wget -c https://root.cern.ch/download/root_v${root_version}.source.tar.gz
