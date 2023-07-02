@@ -25,7 +25,19 @@ start=$(date)
 echo "wdir=${wdir}" >> ${HOME}/.bashrc
 nproc=$(( $(nproc) / 2))
 
+
+# check for root, if it is installed, continue with geant4
+hasroot=0
+source $wdir/$dir/${root_version}-install/bin/thisroot.sh
+if root -q > /dev/null; then 
+	echo "root is installed. We can continue"
+	hasroot=1
+else 
+	echo "root is not installed. Let's install it"
+fi
+
 # downloading and unpacking root
+if !$root; then
 target=root
 dir=ROOT
 mkdir $wdir/$dir
@@ -39,7 +51,7 @@ cd ${root_version}-build
 
 cmake ../${root_version} && cmake --build . -- -j ${nproc} && cmake --build . -- -j ${nproc} && cmake -DCMAKE_INSTALL_PREFIX=$wdir/$dir/${root_version}-install/  -P  cmake_install.cmake 
 
-# check if root is installed
+# check if root is correctly installed
 source $wdir/$dir/${root_version}-install/bin/thisroot.sh
 if root -q > /dev/null; then 
 	echo "root is installed. We can continue"
@@ -61,6 +73,7 @@ source \${ROOT_BASE}/bin/thisroot.sh
 #
 " >> ${HOME}/.bashrc
 source ${HOME}/.bashrc
+fi
 
 # installing geant4
 g4_src="10.07.p04"
