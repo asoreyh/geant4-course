@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/650166059.svg)](https://zenodo.org/badge/latestdoi/650166059)
+
 ![Banner](materials/g4-banner.png)
 
 # Introduction to Geant4 course
