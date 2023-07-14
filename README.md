@@ -20,7 +20,7 @@ This is a 4-hours, work-in-progress and hands-on Geant4 course for beginners. We
 
 ### Lectures
 
-* Lectures' slides (a single document): [Google Slides](https://docs.google.com/presentation/d/1VOZdtuHv4GT2vVAAmoiauFKEVVORfHYiUxqNb3nifQM/edit?usp=sharing)
+* Lectures' slides (a single document): [Google Slides](https://docs.google.com/presentation/d/1VOZdtuHv4GT2vVAAmoiauFKEVVORfHYiUxqNb3nifQM/edit?usp=sharing). You can download the latest release of the [pdf slides](materials/Geant4-Primer-LaConga-2023.pdf).
 
 ### Codes
 

@@ -23,8 +23,7 @@ start=$(date)
 # create the work directory at user's ${HOME} and get the number of procs
 [ ! -d ${wdir} ] && mkdir ${wdir}
 echo "wdir=${wdir}" >> ${HOME}/.bashrc
-nproc=$(( $(nproc) / 2))
-
+nproc=$(( $(nproc) / 2 ))
 
 # check for root, if it is installed, continue with geant4
 hasroot=false
